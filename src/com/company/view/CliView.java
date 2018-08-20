@@ -17,7 +17,7 @@ public class CliView {
     Enemies enemy = new Enemies();
     Scanner in = new Scanner(System.in);
     Random rand = new Random();
-    ContListner cont = new ContListner();
+    ContListner cont = new ContListner(this, hero);
     ErrorVal checkErr = new ErrorVal();
 
     int heroHealth = hero.getHealth();
@@ -28,6 +28,9 @@ public class CliView {
     int stage = game.getStage();
     String eny = enemy.getEnemy(game.getStage());
 
+    public CliView () {
+
+    }
 
     public void startSc() {
         System.out.println("  Welcome to the adventure of hereos");
@@ -68,11 +71,11 @@ public class CliView {
         String nextIn = in.nextLine();
 
         if (nextIn.equals("A") || nextIn.equals("a")) {
-            checkErr.checkPlayErr(nextIn);
+            checkErr.checkMovErr(nextIn);
         } else if (nextIn.equals("X") || nextIn.equals("x")) {
-            checkErr.checkPlayErr(nextIn);
+            checkErr.checkMovErr(nextIn);
         } else {
-            checkErr.checkPlayErr(nextIn);
+            checkErr.checkMovErr(nextIn);
         }
     }
 
@@ -130,7 +133,7 @@ public class CliView {
                         int damageMade = cont.getDamageMade();
                         int takenDamage = cont.getTakenDamage();
 
-                        heroHealth = cont.getHeroHealth();
+//                        heroHealth = cont.getHeroHealth();
                         enemyHealth = cont.getEnemyHealth();
 
                         System.out.println("------------------------------------------------------------------------------------");
@@ -187,7 +190,7 @@ public class CliView {
                         break ;
 
                     } else {
-                        checkErr.checkMovErr(nextIn);
+                        checkErr.checkPlayErr(nextIn);
                         System.out.println("\t \033[33m $ Try values from 0 - 6 \033[0m");
                         System.out.println("------------------------------------------------------------------------------------");
                         continue STAGE;
@@ -197,5 +200,21 @@ public class CliView {
             checkWin();
         }
         endSc();
+    }
+
+    public void printMap(int mapSize, Hereos hero) {
+//        clearScreen();
+        hero.setX(mapSize / 2);
+        hero.setY(mapSize / 2);
+
+        for (int y = 0; y < mapSize; y++) {
+            for (int x = 0; x < mapSize; x++ ) {
+                if (hero.getX() == x && hero.getY() == y)
+                    System.out.print("&");
+                else
+                    System.out.print(".");
+            }
+            System.out.println();
+        }
     }
 }
