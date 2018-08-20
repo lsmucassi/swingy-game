@@ -67,9 +67,9 @@ public class CliView {
 
         String nextIn = in.nextLine();
 
-        if (nextIn.equals("A")) {
+        if (nextIn.equals("A") || nextIn.equals("a")) {
             System.out.println("A was pressed");
-        } else if (nextIn.equals("X")) {
+        } else if (nextIn.equals("X") || nextIn.equals("x")) {
             checkErr.checkErr(nextIn);
         } else {
             checkErr.checkErr(nextIn);
@@ -96,10 +96,10 @@ public class CliView {
             playExit();
         } else if (enemyHealth < 1) {
             System.out.println("------------------------------------------------------------------------------------");
-            System.out.println("\t\t\033[31m#########################################################################\033[0m");
+            System.out.println("\t\t\033[31m#########################################################################\034[0m");
             System.out.println("\t \033[33m$ You defeated \033[0m" + eny +
                     "\033[33m, you can now go to the next level\033[0m \n");
-            System.out.println("\t\t\033[31m#########################################################################\033[0m");
+            System.out.println("\t\t\033[31m#########################################################################\034[0m");
             level++;
             stats();
             System.out.println("------------------------------------------------------------------------------------");
@@ -142,7 +142,7 @@ public class CliView {
 
                         if (heroHealth <= 0) {
                             System.out.println("------------------------------------------------------------------------------------");
-                            System.out.println("\t \033[33m$ You took in a lot of damage from \033[0m" + enemy);
+                            System.out.println("\t \033[33m$ You took in a lot of damage from \033[0m" + eny);
                             System.out.println("------------------------------------------------------------------------------------");
                             break ;
 
