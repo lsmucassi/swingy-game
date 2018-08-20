@@ -68,11 +68,11 @@ public class CliView {
         String nextIn = in.nextLine();
 
         if (nextIn.equals("A") || nextIn.equals("a")) {
-            System.out.println("A was pressed");
+            checkErr.checkPlayErr(nextIn);
         } else if (nextIn.equals("X") || nextIn.equals("x")) {
-            checkErr.checkErr(nextIn);
+            checkErr.checkPlayErr(nextIn);
         } else {
-            checkErr.checkErr(nextIn);
+            checkErr.checkPlayErr(nextIn);
         }
     }
 
@@ -92,14 +92,14 @@ public class CliView {
     public void checkWin() {
 
         if (heroHealth < 1) {
-            checkErr.checkErr("d");
+            checkErr.checkMovErr("d");
             playExit();
         } else if (enemyHealth < 1) {
             System.out.println("------------------------------------------------------------------------------------");
-            System.out.println("\t\t\033[31m#########################################################################\034[0m");
-            System.out.println("\t \033[33m$ You defeated \033[0m" + eny +
-                    "\033[33m, you can now go to the next level\033[0m \n");
-            System.out.println("\t\t\033[31m#########################################################################\034[0m");
+            System.out.println("\t\033[32m#########################################################################\033[0m");
+            System.out.println("\t\033[33m$ You defeated \033[0m" + eny +
+                    "\033[33m, you can now go to the next level\033[0m ");
+            System.out.println("\t\033[32m#########################################################################\n\033[0m");
             level++;
             stats();
             System.out.println("------------------------------------------------------------------------------------");
@@ -187,7 +187,7 @@ public class CliView {
                         break ;
 
                     } else {
-                        checkErr.checkErr(nextIn);
+                        checkErr.checkMovErr(nextIn);
                         System.out.println("\t \033[33m $ Try values from 0 - 6 \033[0m");
                         System.out.println("------------------------------------------------------------------------------------");
                         continue STAGE;

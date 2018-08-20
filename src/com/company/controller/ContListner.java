@@ -23,6 +23,14 @@ public class ContListner {
 
         heroHealth -= takenDamage;
         enemyHealth -= damageMade;
+
+        if (heroHealth <= 1 && enemyHealth <= 1) {
+            if (takenDamage < damageMade) {
+                heroHealth = 1;
+            } else
+                enemyHealth = 1;
+        }
+
         if (heroHealth <= 0) { heroHealth  = 0; }
         if (enemyHealth <= 0) { enemyHealth = 0; }
 

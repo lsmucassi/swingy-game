@@ -7,7 +7,20 @@ public class Enemies  {
     int enemyDamage = 10;
 //    String enemy = "";
 
+    //set
+    public void setEnemy(int stage) {
+//        return enemies[stage];
+    }
 
+    public void setEnyHealth(int enHlt) {
+        this.enemyHealth = enHlt;
+    }
+
+    public void setEnyDamage(int enDmg) {
+        this.enemyDamage = enDmg;
+    }
+
+    //get
     public String getEnemy(int stage) {
         return enemies[stage];
     }
@@ -19,5 +32,7 @@ public class Enemies  {
     public int getEnyDamage() {
         return enemyDamage;
     }
+
+
 
 }

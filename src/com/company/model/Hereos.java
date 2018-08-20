@@ -8,6 +8,7 @@ public class Hereos {
     int exp = 0;
     int hitPoint = 0;
 
+    //get
     public int getLevel() {
         return level;
     }
@@ -26,5 +27,26 @@ public class Hereos {
 
     public int getAttackDamage() {
         return attackDamage;
+    }
+
+    //set
+    public void setLevel(int lev) {
+        this.level = lev;
+    }
+
+    public void setHitPoint(int hp) {
+        this.hitPoint = hp;
+    }
+
+    public void setHealth(int hlt) {
+        this.health = hlt;
+    }
+
+    public void setExp(int expr) {
+        this.exp = expr;
+    }
+
+    public void setAttackDamage(int attDmg) {
+        this.attackDamage = attDmg;
     }
 }
