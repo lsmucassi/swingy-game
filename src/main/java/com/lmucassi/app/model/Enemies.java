@@ -7,7 +7,7 @@ import java.util.Random;
 @Getter
 @Setter
 
-public class Enemies {
+public class Enemies extends Characters{
 
     public Enemies(){}
 

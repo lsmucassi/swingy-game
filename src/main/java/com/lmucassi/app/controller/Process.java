@@ -13,7 +13,7 @@ public class Process {
 
     //get players
     public void loadPlayer(Heroes h) {
-        String fileName = "src/players.txt";
+        String fileName = "/goinfre/lmucassi/Documents/swingy-game/src/main/java/com/lmucassi/app/players";
         File file = new File(fileName);
 
         try {
@@ -25,7 +25,7 @@ public class Process {
 
         } catch (FileNotFoundException err) {
             System.out.println("Err: Players file not found [ error loading heroes ]");
-            err.printStackTrace();
+            err.getMessage();
         }
 
         Scanner creatCha = new Scanner(System.in);

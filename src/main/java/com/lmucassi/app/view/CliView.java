@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 public class CliView {
 
-    boolean isGameOn = true;
+    public boolean isGameOn = true;
     Scanner in = new Scanner(System.in);
 
     public CliView() {

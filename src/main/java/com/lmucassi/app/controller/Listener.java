@@ -87,13 +87,12 @@ public class Listener {
 
     }
 
-
-    public void gameCli(/*Game game, Hereos hero, */Enemies enemy, Heroes hero, Listener) {
-        startSc();
-        while (isGameOn) {
+    public void gameCli(/*Game game, Hereos hero, */Enemies enemy, Heroes hero) {
+        _cli.startSc();
+        while (_cli.isGameOn) {
 //            if (game.getStage() == 0) {
             STAGE:
-            while (enemy.getLife() > 0) {
+            while (enemy.getHitPoint() > 0) {
                 checkCom();
                 System.out.println("------------------------------------------------------------------------------------");
                 System.out.println(" \033[32m$ Enter command\033[0m");
@@ -103,7 +102,7 @@ public class Listener {
 
                 if (nextIn.equals("0")) {
 
-                    doFight(hero);
+                    doFight(hero, _cli);
 /* check here
                         int damageMade = cont.getDamageMade();
                         int takenDamage = cont.getTakenDamage();
