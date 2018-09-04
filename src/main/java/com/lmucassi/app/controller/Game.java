@@ -2,7 +2,7 @@ package com.lmucassi.app.controller;
 
 public class Game {
 
-        String[] places = {"Forest Of Wolves", "Icy Mountain Of Bears", "Caves Of The Wild", "Swampy Land"};
+        //String[] places = {"Forest Of Wolves", "Icy Mountain Of Bears", "Caves Of The Wild", "Swampy Land"};
 
         int stage = 0;
 
