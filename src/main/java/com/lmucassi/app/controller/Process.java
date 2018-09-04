@@ -54,7 +54,7 @@ public class Process {
         }
 //        hero = players.get(3);
         for ( Heroes count: players) {
-            System.out.println((players.indexOf(h) + 1) + " " + count.getName()
+            System.out.println((players.indexOf(count) + 1) + " " + count.getName()
                     + " - The " + count.getType()
                     + " - level " + count.getLevel());
         }
