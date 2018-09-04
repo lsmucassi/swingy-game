@@ -11,9 +11,9 @@ public class Process {
 
     public Process() {}
 
-    //get players
+    //get players.txt
     public void loadPlayer(Heroes h) {
-        String fileName = "/goinfre/lmucassi/Documents/swingy-game/src/main/java/com/lmucassi/app/players";
+        String fileName = "/home/cruixer/Documents/scl/swingy-game/src/main/java/com/lmucassi/app/players.txt";
         File file = new File(fileName);
 
         try {
@@ -24,7 +24,7 @@ public class Process {
             inFile.close();
 
         } catch (FileNotFoundException err) {
-            System.out.println("Err: Players file not found [ error loading heroes ]");
+            System.out.println("Err: Players file not found \n\t\033[31m[ error loading heroes ]\033[0m\n");
             err.getMessage();
         }
 
@@ -45,14 +45,14 @@ public class Process {
         }
     }
 
-    //list available players
+    //list available players.txt
     public  void listPlayers(Scanner ls, Heroes h) {
         ArrayList<Heroes> players = new ArrayList<>();
 
         while (ls.hasNext()) {
             players.add(h.getHero(ls.next()));
         }
-//        hero = players.get(3);
+//        hero = players.txt.get(3);
         for ( Heroes count: players) {
             System.out.println((players.indexOf(count) + 1) + " " + count.getName()
                     + " - The " + count.getType()
