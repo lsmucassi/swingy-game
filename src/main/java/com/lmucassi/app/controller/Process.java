@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 public class Process {
     int isFound = 0;
-    ErrException err;
+    ErrException err = new ErrException();
     public Process() {}
 
     //get players.txt
@@ -47,7 +47,7 @@ public class Process {
 
                 String nextCha = Cha.nextLine();
                 if (nextCha.equals("C") || nextCha.equals("c")) {
-                    createHero();
+                    createHero(h);
                     er = 0;
                 } else if (nextCha.equals("S") || nextCha.equals("s")) {
                     //select player an set
@@ -60,7 +60,7 @@ public class Process {
     }
 
     //create hero
-    public void createHero() {
+    public void createHero(Heroes h) {
         int doneCreat = 0;
         ArrayList<Heroes> newHr = new ArrayList<>();
         Scanner Cha = new Scanner(System.in);
@@ -71,8 +71,7 @@ public class Process {
             System.out.print("\033[32m $  \033[0m");
             String getH = Cha.nextLine();
             newHr.add(h.getHero(getH));
-            System.out.println(newHr.get(0));
-
+            System.out.println(newHr);
         }
     }
 
