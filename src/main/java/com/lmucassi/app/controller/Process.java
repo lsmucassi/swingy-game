@@ -116,12 +116,10 @@ public class Process {
 
           doneCreat = 0;
         }
-        System.out.println("-----------------------");
-
+        System.out.println("------------------------------------------------------------------------------------");
             System.out.println(" " + list.get(0)
                     + " - The " + list.get(1)
                     + " - level " + list.get(2));
-
     }
 
     //list available players.txt

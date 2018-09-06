@@ -58,7 +58,6 @@ public class Listener {
                 System.out.println("------------------------------------------------------------------------------------");
                 System.out.println("\t#\tLet's Begin \t#");
                 System.out.println("------------------------------------------------------------------------------------");
-                System.out.println("\033[33m $ This is the beginning of your journey to saving the princess\033[0m");
                 System.out.println("\033[34m \033[34m$ Loading players \033[0m \n" /* + eny */);
                 er = 0;
             } else if (nextCha.equals("X") || nextCha.equals("x")) {
@@ -121,12 +120,13 @@ public class Listener {
     }
 
     public void gameCli(/*Game game, Hereos hero, */Enemies enemy, Heroes hero) {
-
+        System.out.println("\033[33m $ This is the beginning of your journey to saving the princess\033[0m");
         while (_cli.isGameOn) {
+            
 //            if (game.getStage() == 0) {
             STAGE:
             while (enemy.getHitPoint() > 0) {
-                checkCom();
+//                checkCom();
                 System.out.println("------------------------------------------------------------------------------------");
                 System.out.println(" \033[32m$ Enter command\033[0m");
                 System.out.print("\033[32m $  \033[0m");
