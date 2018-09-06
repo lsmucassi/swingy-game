@@ -1,5 +1,6 @@
 package com.lmucassi.app.controller;
 
+import com.lmucassi.app.ErrException.ErrException;
 import com.lmucassi.app.model.Enemies;
 import com.lmucassi.app.model.Heroes;
 import java.io.File;
@@ -9,12 +10,14 @@ import java.util.Scanner;
 
 public class Process {
     int isFound = 0;
+    ErrException err;
     public Process() {}
 
     //get players.txt
     public void loadPlayer(Heroes h) {
 
-        String fileName = "/goinfre/lmucasi/Documents/swingy-game/src/main/java/com/lmucassi/app/players.txt";
+        int er = 1;
+        String fileName = "/goinfre/lmucassi/Documents/swingy-game/src/main/java/com/lmucassi/app/players.txt";
         File file = new File(fileName);
 
         try {
@@ -32,22 +35,44 @@ public class Process {
             System.exit(0);
         }
 
-        Scanner creatCha = new Scanner(System.in);
-        int doneCreat = 0;
+        Scanner Cha = new Scanner(System.in);
 
-        if (isFound == 1) {
-            System.out.println("\t \033[34m - C : Would you like to create a hero \033[0m");
-            System.out.println("\t \033[31m - S : Choose from a list \033[0m");
-            System.out.println("------------------------------------------------------------------------------------");
-            System.out.println("\033[32m $ Enter command \033[0m");
-            System.out.print("\033[32m $  \033[0m");
+        while ( er == 1) {
+            if (isFound == 1) {
+                System.out.println("\t \033[34m - C : Would you like to create a hero \033[0m");
+                System.out.println("\t \033[31m - S : Choose from the list [ select a number ] \033[0m");
+                System.out.println("------------------------------------------------------------------------------------");
+                System.out.println("\033[32m $ Enter command \033[0m");
+                System.out.print("\033[32m $  \033[0m");
 
-            String nextCha = creatCha.nextLine();
-            if (nextCha == "C") {
-                while (doneCreat == 0) {
-                    //enter Hero characteristics
+                String nextCha = Cha.nextLine();
+                if (nextCha.equals("C") || nextCha.equals("c")) {
+                    createHero();
+                    er = 0;
+                } else if (nextCha.equals("S") || nextCha.equals("s")) {
+                    //select player an set
+                    er = 0;
+                } else {
+                    err.checkMovErr(nextCha);
                 }
             }
+        }
+    }
+
+    //create hero
+    public void createHero() {
+        int doneCreat = 0;
+        ArrayList<Heroes> newHr = new ArrayList<>();
+        Scanner Cha = new Scanner(System.in);
+        //enter Hero characteristics
+        while (doneCreat == 0) {
+
+            System.out.println("\033[32m $ Enter Hero Name: \033[0m");
+            System.out.print("\033[32m $  \033[0m");
+            String getH = Cha.nextLine();
+            newHr.add(h.getHero(getH));
+            System.out.println(newHr.get(0));
+
         }
     }
 

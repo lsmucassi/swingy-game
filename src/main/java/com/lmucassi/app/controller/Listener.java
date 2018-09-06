@@ -58,7 +58,6 @@ public class Listener {
                 System.out.println("------------------------------------------------------------------------------------");
                 System.out.println("\t#\tLet's Begin \t#");
                 System.out.println("------------------------------------------------------------------------------------");
-                System.out.println("\n");
                 System.out.println("\033[33m $ This is the beginning of your journey to saving the princess\033[0m");
                 System.out.println("\033[34m \033[34m$ Loading players \033[0m \n" /* + eny */);
                 er = 0;
