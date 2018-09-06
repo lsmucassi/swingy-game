@@ -60,7 +60,7 @@ public class Listener {
                 System.out.println("------------------------------------------------------------------------------------");
                 System.out.println("\n");
                 System.out.println("\033[33m $ This is the beginning of your journey to saving the princess\033[0m");
-                System.out.println("\033[34m \033[34m$ You are now faced with \033[0m \n" /* + eny */);
+                System.out.println("\033[34m \033[34m$ Loading players \033[0m \n" /* + eny */);
                 er = 0;
             } else if (nextCha.equals("X") || nextCha.equals("x")) {
                 err.checkMovErr(nextCha);

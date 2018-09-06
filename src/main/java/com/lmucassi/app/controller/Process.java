@@ -26,8 +26,10 @@ public class Process {
             isFound = 1;
 
         } catch (FileNotFoundException err) {
-            System.out.println("Err: Players file not found \n\t\033[31m[ error loading heroes ]\033[0m\n");
+            System.out.println("\033[31mErr\033[0m: Players file not found \n\t\033[31m[ error loading heroes ]\033[0m\n");
             err.getMessage();
+            System.out.println("\033[31mErr\033[0m: Invalid File \n\t\033[33m[ hint: fix file and run the game again]\033[0m\n");
+            System.exit(0);
         }
 
         Scanner creatCha = new Scanner(System.in);
