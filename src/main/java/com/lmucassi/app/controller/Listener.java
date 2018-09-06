@@ -12,6 +12,7 @@ public class Listener {
     Heroes _hero ;
     Enemies enemy = new Enemies();
     Process pro = new Process();
+    ErrException err = new ErrException();
 
     String eny = enemy.getEny();
     Scanner in = new Scanner(System.in);
@@ -23,6 +24,8 @@ public class Listener {
     }
 
     public void playGame() {
+        _cli.startSc();
+        startPlay();
         pro.loadPlayer(_hero);
         gameCli(enemy, _hero);
         _cli.endSc();
@@ -36,8 +39,32 @@ public class Listener {
         System.out.println("\t\033[34m $ Your experience is \033[0m" + _hero.getExp() + "\033[34m XP\033[0m");
     }
 
-    public void playExit(ErrException err) {
-        System.out.println("\t \033[34m - A : Play again \033[0m");
+    public void startPlay() {
+        System.out.println("------------------------------------------------------------------------------------");
+        System.out.println("\t \033[34m - A : Play  \033[0m");
+        System.out.println("\t \033[31m - X : Exit \033[0m");
+        System.out.println("------------------------------------------------------------------------------------");
+        System.out.println("\033[32m $ Enter command \033[0m");
+        System.out.print("\033[32m $  \033[0m");
+
+        Scanner creatCha = new Scanner(System.in);
+        String nextCha = creatCha.nextLine();
+        if (nextCha.equals("A") || nextCha.equals("a")) {
+            System.out.println("------------------------------------------------------------------------------------");
+            System.out.println("\t#\tLet's Begin \t#");
+            System.out.println("------------------------------------------------------------------------------------");
+            System.out.println("\n");
+            System.out.println("\033[33m $ This is the beginning of your journey to saving the princess\033[0m");
+            System.out.println("\033[34m \033[34m$ You are now faced with \033[0m \n" /* + eny */);
+        } else if (nextCha.equals("X") || nextCha.equals("x")) {
+            err.checkMovErr(nextCha);
+        } else {
+            err.checkMovErr(nextCha);
+        }
+    }
+
+    public void playExit() {
+        System.out.println("\t \033[34m - A : Play again  \033[0m");
         System.out.println("\t \033[31m - X : Exit \033[0m");
         System.out.println("------------------------------------------------------------------------------------");
         System.out.println("\033[32m $ Enter command \033[0m");
@@ -88,7 +115,7 @@ public class Listener {
     }
 
     public void gameCli(/*Game game, Hereos hero, */Enemies enemy, Heroes hero) {
-        _cli.startSc();
+
         while (_cli.isGameOn) {
 //            if (game.getStage() == 0) {
             STAGE:

@@ -42,12 +42,6 @@ public class CliView {
         System.out.println("  and if you do the king will make you a knight");
         System.out.println("\033[32m#########################################################################\033[0m");
         System.out.println("\n");
-        System.out.println("------------------------------------------------------------------------------------");
-        System.out.println("\t#\tLet's Begin \t#");
-        System.out.println("------------------------------------------------------------------------------------");
-        System.out.println("\n");
-        System.out.println("\t\033[33m $ This is the beginning of your journey to saving the princess\033[0m");
-        System.out.println("\t\033[34m \033[34m$ You are now faced with \033[0m" /* + eny */);
     }
 
     public void endSc() {

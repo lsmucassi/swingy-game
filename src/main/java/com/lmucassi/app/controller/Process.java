@@ -8,12 +8,13 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Process {
-
+    int isFound = 0;
     public Process() {}
 
     //get players.txt
     public void loadPlayer(Heroes h) {
-        String fileName = "/home/cruixer/Documents/scl/swingy-game/src/main/java/com/lmucassi/app/players.txt";
+
+        String fileName = "/goinfre/lmucasi/Documents/swingy-game/src/main/java/com/lmucassi/app/players.txt";
         File file = new File(fileName);
 
         try {
@@ -22,6 +23,7 @@ public class Process {
             listPlayers(inFile, h);
             System.out.println("\n");
             inFile.close();
+            isFound = 1;
 
         } catch (FileNotFoundException err) {
             System.out.println("Err: Players file not found \n\t\033[31m[ error loading heroes ]\033[0m\n");
@@ -31,16 +33,18 @@ public class Process {
         Scanner creatCha = new Scanner(System.in);
         int doneCreat = 0;
 
-        System.out.println("\t \033[34m - C : Would you like to create a hero \033[0m");
-        System.out.println("\t \033[31m - S : Choose from a list \033[0m");
-        System.out.println("------------------------------------------------------------------------------------");
-        System.out.println("\033[32m $ Enter command \033[0m");
-        System.out.print("\033[32m $  \033[0m");
+        if (isFound == 1) {
+            System.out.println("\t \033[34m - C : Would you like to create a hero \033[0m");
+            System.out.println("\t \033[31m - S : Choose from a list \033[0m");
+            System.out.println("------------------------------------------------------------------------------------");
+            System.out.println("\033[32m $ Enter command \033[0m");
+            System.out.print("\033[32m $  \033[0m");
 
-        String nextCha = creatCha.nextLine();
-        if (nextCha == "C") {
-            while (doneCreat == 0) {
-                //enter Hero characteristics
+            String nextCha = creatCha.nextLine();
+            if (nextCha == "C") {
+                while (doneCreat == 0) {
+                    //enter Hero characteristics
+                }
             }
         }
     }
