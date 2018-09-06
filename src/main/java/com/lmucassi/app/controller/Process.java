@@ -1,5 +1,6 @@
 package com.lmucassi.app.controller;
 
+import java.util.List;
 import com.lmucassi.app.ErrException.ErrException;
 import com.lmucassi.app.model.Enemies;
 import com.lmucassi.app.model.Heroes;
@@ -61,18 +62,66 @@ public class Process {
 
     //create hero
     public void createHero(Heroes h) {
-        int doneCreat = 0;
-        ArrayList<Heroes> newHr = new ArrayList<>();
+        int doneCreat = 1;
+        List<String> list = new ArrayList<String>();
         Scanner Cha = new Scanner(System.in);
-        //enter Hero characteristics
-        while (doneCreat == 0) {
+//        String getH;
 
-            System.out.println("\033[32m $ Enter Hero Name: \033[0m");
+        //enter Hero characteristics
+        while (doneCreat == 1) {
+            System.out.println("\n\033[32m $ Enter Hero's Name: \033[0m");
             System.out.print("\033[32m $  \033[0m");
-            String getH = Cha.nextLine();
-            newHr.add(h.getHero(getH));
-            System.out.println(newHr);
+//            getH = Cha.nextLine();
+            list.add(Cha.nextLine());
+
+            System.out.println("\n\033[32m $ Enter Hero's Class: \033[0m");
+            System.out.print("\033[32m $  \033[0m");
+//            getH = Cha.nextLine();
+            list.add(Cha.nextLine());
+
+            System.out.println("\n\033[32m $ Enter Hero's Level between 0 - 2 : \033[0m");
+            System.out.print("\033[32m $  \033[0m");
+//            getH = Cha.nextLine();
+            list.add(Cha.nextLine());
+
+            System.out.println("\n\033[32m $ Enter Hero's Level Experience: \033[0m");
+            System.out.print("\033[32m $  \033[0m");
+//            getH = Cha.nextLine();
+            list.add(Cha.nextLine());
+
+            System.out.println("\n\033[32m $ Enter Hero's Clan : \033[0m");
+            System.out.print("\033[32m $  \033[0m");
+//            getH = Cha.nextLine();
+            list.add(Cha.nextLine());
+
+            System.out.println("\n\033[32m $ Enter Hero's Attack Strength: \033[0m");
+            System.out.print("\033[32m $  \033[0m");
+//            getH = Cha.nextLine();
+            list.add(Cha.nextLine());
+
+            System.out.println("\n\033[32m $ Enter Hero's Defence Strength : \033[0m");
+            System.out.print("\033[32m $  \033[0m");
+//            getH = Cha.nextLine();
+            list.add(Cha.nextLine());
+
+            System.out.println("\n\033[32m $ Enter Hero's First Weapon : \033[0m");
+            System.out.print("\033[32m $  \033[0m");
+//            getH = Cha.nextLine();
+            list.add(Cha.nextLine());
+
+            System.out.println("\n\033[32m $ Enter Hero's Second Weapon: \033[0m");
+            System.out.print("\033[32m $  \033[0m");
+//            getH = Cha.nextLine();
+            list.add(Cha.nextLine());
+
+          doneCreat = 0;
         }
+        System.out.println("-----------------------");
+
+            System.out.println(" " + list.get(0)
+                    + " - The " + list.get(1)
+                    + " - level " + list.get(2));
+
     }
 
     //list available players.txt
