@@ -40,26 +40,33 @@ public class Listener {
     }
 
     public void startPlay() {
+        int er = 1;
+
         System.out.println("------------------------------------------------------------------------------------");
         System.out.println("\t \033[34m - A : Play  \033[0m");
         System.out.println("\t \033[31m - X : Exit \033[0m");
         System.out.println("------------------------------------------------------------------------------------");
-        System.out.println("\033[32m $ Enter command \033[0m");
-        System.out.print("\033[32m $  \033[0m");
 
-        Scanner creatCha = new Scanner(System.in);
-        String nextCha = creatCha.nextLine();
-        if (nextCha.equals("A") || nextCha.equals("a")) {
-            System.out.println("------------------------------------------------------------------------------------");
-            System.out.println("\t#\tLet's Begin \t#");
-            System.out.println("------------------------------------------------------------------------------------");
-            System.out.println("\n");
-            System.out.println("\033[33m $ This is the beginning of your journey to saving the princess\033[0m");
-            System.out.println("\033[34m \033[34m$ You are now faced with \033[0m \n" /* + eny */);
-        } else if (nextCha.equals("X") || nextCha.equals("x")) {
-            err.checkMovErr(nextCha);
-        } else {
-            err.checkMovErr(nextCha);
+
+        Scanner Cha = new Scanner(System.in);
+
+        while (er == 1) {
+            System.out.println("\033[32m $ Enter command \033[0m");
+            System.out.print("\033[32m $  \033[0m");
+            String nextCha = Cha.nextLine();
+            if (nextCha.equals("A") || nextCha.equals("a")) {
+                System.out.println("------------------------------------------------------------------------------------");
+                System.out.println("\t#\tLet's Begin \t#");
+                System.out.println("------------------------------------------------------------------------------------");
+                System.out.println("\n");
+                System.out.println("\033[33m $ This is the beginning of your journey to saving the princess\033[0m");
+                System.out.println("\033[34m \033[34m$ You are now faced with \033[0m \n" /* + eny */);
+                er = 0;
+            } else if (nextCha.equals("X") || nextCha.equals("x")) {
+                err.checkMovErr(nextCha);
+            } else {
+                err.checkMovErr(nextCha);
+            }
         }
     }
 
