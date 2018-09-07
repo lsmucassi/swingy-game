@@ -33,7 +33,7 @@ public class CliView {
         }
     }
 
-    public void startSc() {
+    public void startSc()  {
         System.out.println("\033[32m#########################################################################\033[0m");
         System.out.println("  Welcome to the adventure of heroes");
         System.out.println("  You are a warrior in a land of the unknown, the king called you and gave you a task");

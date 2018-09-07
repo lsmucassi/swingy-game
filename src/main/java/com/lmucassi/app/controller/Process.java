@@ -1,21 +1,30 @@
 package com.lmucassi.app.controller;
 
 import java.util.List;
+
 import com.lmucassi.app.ErrException.ErrException;
 import com.lmucassi.app.model.Enemies;
 import com.lmucassi.app.model.Heroes;
+import lombok.Getter;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+@Getter
 public class Process {
     int isFound = 0;
+    Heroes hero = new Heroes();
+    int mapSize;
+    private ArrayList<Heroes> heroes;
     ErrException err = new ErrException();
-    public Process() {}
+
+    public Process() {
+    }
 
     //get players.txt
-    public void loadPlayer(Heroes h) {
+    public Heroes loadPlayer(Heroes h) {
 
         int er = 1;
         String fileName = "/goinfre/lmucassi/Documents/swingy-game/src/main/java/com/lmucassi/app/players.txt";
@@ -24,7 +33,7 @@ public class Process {
         try {
             Scanner inFile = new Scanner(file);
 
-            listPlayers(inFile, h);
+            heroes = listPlayers(inFile, h);
             System.out.println("\n");
             inFile.close();
             isFound = 1;
@@ -38,7 +47,7 @@ public class Process {
 
         Scanner Cha = new Scanner(System.in);
 
-        while ( er == 1) {
+        while (er == 1) {
             if (isFound == 1) {
                 System.out.println("\t \033[34m - C : Would you like to create a hero \033[0m");
                 System.out.println("\t \033[31m - S : Choose from the list [ select a number ] \033[0m");
@@ -48,92 +57,85 @@ public class Process {
 
                 String nextCha = Cha.nextLine();
                 if (nextCha.equals("C") || nextCha.equals("c")) {
-                    createHero(h);
+                    createHero();
                     er = 0;
                 } else if (nextCha.equals("S") || nextCha.equals("s")) {
-                    //select player an set
+                    System.out.println("\033[32m $ Select a hero number \033[0m");
+                    System.out.print("\033[32m $  \033[0m");
+                    nextCha = Cha.nextLine();
+                    this.hero = heroes.get(Integer.parseInt(nextCha) - 1);
                     er = 0;
                 } else {
                     err.checkMovErr(nextCha);
                 }
             }
         }
+        return this.hero;
     }
 
     //create hero
-    public void createHero(Heroes h) {
+    public void createHero() {
         int doneCreat = 1;
-        List<String> list = new ArrayList<String>();
+        Heroes hero = new Heroes();
         Scanner Cha = new Scanner(System.in);
-//        String getH;
 
         //enter Hero characteristics
         while (doneCreat == 1) {
             System.out.println("\n\033[32m $ Enter Hero's Name: \033[0m");
             System.out.print("\033[32m $  \033[0m");
-//            getH = Cha.nextLine();
-            list.add(Cha.nextLine());
+            this.hero.setName(Cha.nextLine());
 
             System.out.println("\n\033[32m $ Enter Hero's Class: \033[0m");
             System.out.print("\033[32m $  \033[0m");
-//            getH = Cha.nextLine();
-            list.add(Cha.nextLine());
-
-            System.out.println("\n\033[32m $ Enter Hero's Level between 0 - 2 : \033[0m");
-            System.out.print("\033[32m $  \033[0m");
-//            getH = Cha.nextLine();
-            list.add(Cha.nextLine());
-
-            System.out.println("\n\033[32m $ Enter Hero's Level Experience: \033[0m");
-            System.out.print("\033[32m $  \033[0m");
-//            getH = Cha.nextLine();
-            list.add(Cha.nextLine());
+            this.hero.setType(Cha.nextLine());
 
             System.out.println("\n\033[32m $ Enter Hero's Clan : \033[0m");
             System.out.print("\033[32m $  \033[0m");
-//            getH = Cha.nextLine();
-            list.add(Cha.nextLine());
+            this.hero.setClan(Cha.nextLine());
+            this.hero.setLevel(0);
+            this.hero.setExp(500);
+//            this.hero.setWeap1(getWeapon(hero.getLevel()));
+//            this.hero.setDef(getDefense(hero.getWeapon()));
 
-            System.out.println("\n\033[32m $ Enter Hero's Attack Strength: \033[0m");
-            System.out.print("\033[32m $  \033[0m");
-//            getH = Cha.nextLine();
-            list.add(Cha.nextLine());
-
-            System.out.println("\n\033[32m $ Enter Hero's Defence Strength : \033[0m");
-            System.out.print("\033[32m $  \033[0m");
-//            getH = Cha.nextLine();
-            list.add(Cha.nextLine());
-
-            System.out.println("\n\033[32m $ Enter Hero's First Weapon : \033[0m");
-            System.out.print("\033[32m $  \033[0m");
-//            getH = Cha.nextLine();
-            list.add(Cha.nextLine());
-
-            System.out.println("\n\033[32m $ Enter Hero's Second Weapon: \033[0m");
-            System.out.print("\033[32m $  \033[0m");
-//            getH = Cha.nextLine();
-            list.add(Cha.nextLine());
-
-          doneCreat = 0;
+            doneCreat = 0;
         }
         System.out.println("------------------------------------------------------------------------------------");
-            System.out.println(" " + list.get(0)
-                    + " - The " + list.get(1)
-                    + " - level " + list.get(2));
+        System.out.println(" " + hero.getName()
+                + " - The " + hero.getType()
+                + " - level " + hero.getClan());
+    }
+
+    public String getWeapon(int level) {
+        String[] weapons = {"weapon"};
+
+        switch (level) {
+            case 1:
+                return weapons[0];
+        }
+        return null;
+    }
+
+    public int getAttackStrength(String weapon) {
+        switch (weapon) {
+            case "weapon":
+                return 42;
+        }
+        return -1;
     }
 
     //list available players.txt
-    public  void listPlayers(Scanner ls, Heroes h) {
+    public ArrayList<Heroes> listPlayers(Scanner ls, Heroes h) {
         ArrayList<Heroes> players = new ArrayList<>();
 
         while (ls.hasNext()) {
             players.add(h.getHero(ls.next()));
         }
 //        hero = players.txt.get(3);
-        for ( Heroes count: players) {
+        for (Heroes count : players) {
             System.out.println((players.indexOf(count) + 1) + " " + count.getName()
                     + " - The " + count.getType()
                     + " - level " + count.getLevel());
         }
+        return players;
     }
 }

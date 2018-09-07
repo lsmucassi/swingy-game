@@ -26,4 +26,6 @@ public class Heroes extends Characters {
         hero.setHitPoint(Integer.parseInt(detail[8]));
         return (hero);
     }
+
+
 }

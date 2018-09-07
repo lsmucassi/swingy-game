@@ -97,118 +97,31 @@ public class Listener {
         System.out.println("\t\033[34m- 4 : Go West\033[0m");
         System.out.println("\t\033[34m- 5 : Run\033[0m");
         System.out.println("\t\033[31m- 6 : Exit\033[0m");
-    }
 
-    public void doFight(Heroes _hero, CliView c) {
-        c.printMap((2-1)*5+10-(2%2), _hero);
-//        takenDamage = rand.nextInt(enemy.getEnyDamage());
-//        damageMade = rand.nextInt(hero.getAttackDamage());
-//
-//        heroHealth -= takenDamage;
-//        enemyHealth -= damageMade;
-//
-//        if (heroHealth <= 1 && enemyHealth <= 1) {
-//            if (takenDamage < damageMade) {
-//                heroHealth = 1;
-//            } else
-//                enemyHealth = 1;
-//        }
-//
-//        if (heroHealth <= 0) { heroHealth  = 0; }
-//        if (enemyHealth <= 0) { enemyHealth = 0; }
-
-    }
-
-    public void gameCli(/*Game game, Hereos hero, */Enemies enemy, Heroes hero) {
-        System.out.println("\033[33m $ This is the beginning of your journey to saving the princess\033[0m");
-        while (_cli.isGameOn) {
-            
-//            if (game.getStage() == 0) {
-            STAGE:
-            while (enemy.getHitPoint() > 0) {
-//                checkCom();
-                System.out.println("------------------------------------------------------------------------------------");
-                System.out.println(" \033[32m$ Enter command\033[0m");
-                System.out.print("\033[32m $  \033[0m");
-
-                String nextIn = in.nextLine();
-
-                if (nextIn.equals("0")) {
-
-                    doFight(hero, _cli);
-/* check here
-                        int damageMade = cont.getDamageMade();
-                        int takenDamage = cont.getTakenDamage();
-
-//                        heroHealth = cont.getHeroHealth();
-                        enemyHealth = cont.getEnemyHealth();
-
-                        System.out.println("------------------------------------------------------------------------------------");
+        /* System.out.println("------------------------------------------------------------------------------------");
                         System.out.println("\t \033[33m$ You attacked \033[0m" + eny + "\033[33m with \033[0m" + damageMade);
                         System.out.println("\t \033[33m$ \033[0m" + eny + "\033[33m attacked you back with \033[0m" + takenDamage);
                         System.out.println("------------------------------------------------------------------------------------");
                         System.out.println("\t \033[34m$ Your health is : \033[0m" + heroHealth);
                         System.out.println("\t \033[34m$ " + eny +"'s health is : \033[0m" + enemyHealth);
-
-                        if (hero.getHeroHealth() <= 0) {
-                            System.out.println("------------------------------------------------------------------------------------");
-                            System.out.println("\t \033[33m$ You took in a lot of damage from \033[0m" + eny);
-                            System.out.println("------------------------------------------------------------------------------------");
-                            break ;
-
-                        } else if (enemy.getEnemyHealth() <= 0) {
-                            hitPoint += 1000;
-                            exp += 5;
-                            stage++;
-                            break;
-                        }
-
-                    } else if (nextIn.equals("1")) {
-                        System.out.println("------------------------------------------------------------------------------------");
+                         System.out.println("------------------------------------------------------------------------------------");
                         System.out.println("\t \033[33m$ You chose to go North\033[0m");
-                        System.out.println("------------------------------------------------------------------------------------");
+                        System.out.println("------------------------------------------------------------------------------------"); */
+    }
 
-                    } else if (nextIn.equals("2")) {
-                        System.out.println("------------------------------------------------------------------------------------");
-                        System.out.println("\t \033[33m$ You chose to go East\033[0m");
-                        System.out.println("------------------------------------------------------------------------------------");
+    public void doFight(Heroes _hero, CliView c) {
+        c.printMap((2-1)*5+10-(2%2), _hero);
+    }
 
-                    } else if (nextIn.equals("3")) {
-                        System.out.println("------------------------------------------------------------------------------------");
-                        System.out.println("\t \033[33m$ You chose to go South\033[0m");
-                        System.out.println("------------------------------------------------------------------------------------");
+    public void gameCli(Enemies enemy, Heroes hero) {
+        System.out.println("\033[33m $ This is the beginning of your journey to" +
+                " saving the princess\033[0m");
 
-                    } else if (nextIn.equals("4")) {
-                        System.out.println("------------------------------------------------------------------------------------");
-                        System.out.println("\t \033[33m$ You chose to go West\033[0m");
-                        System.out.println("------------------------------------------------------------------------------------");
+        Start:
+        while (true) {
+            while (this._hero.getX() < pro.getMapSize() && this._hero.getX() >= 0
+                    && this._hero.getY() < pro.getMapSize() && this._hero.getY() >= 0) {
 
-                    } else if (nextIn.equals("5")) {
-                        System.out.println("------------------------------------------------------------------------------------");
-                        System.out.println("\t \033[33m$ Ey Yoh, why are you running ? huh\033[0m");
-                        System.out.println("------------------------------------------------------------------------------------");
-
-                    } else if (nextIn.equals("6")){
-                        System.out.println("------------------------------------------------------------------------------------");
-                        System.out.println("\t \033[33m$ You are leaving the world of the unknown\033[0m");
-                        System.out.println("------------------------------------------------------------------------------------");
-                        stats();
-                        isGameOn = false;
-                        break ;
-
-                    } else {
-                        checkErr.checkPlayErr(nextIn);
-                        System.out.println("\t \033[33m $ Try values from 0 - 6 \033[0m");
-                        System.out.println("------------------------------------------------------------------------------------");
-                        continue STAGE;
-                    }
-                }
-            }
-            checkWin();
-        }
-        endSc();
-    */
-                }
             }
         }
     }
