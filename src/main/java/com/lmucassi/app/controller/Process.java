@@ -52,7 +52,7 @@ public class Process {
         while (er == 1) {
             if (isFound == 1) {
                 System.out.println("\t \033[34m - C : Would you like to create a hero \033[0m");
-                System.out.println("\t \033[31m - S : Choose from the list [ select a number ] \033[0m");
+                System.out.println("\t \033[33m - S : Choose from the list [ select a number ] \033[0m");
                 System.out.println("\t \033[31m - X : Exit \033[0m");
                 System.out.println("------------------------------------------------------------------------------------");
                 System.out.println("\033[32m $ Enter command \033[0m");
@@ -138,7 +138,7 @@ public class Process {
         }
 //        hero = players.txt.get(3);
         for (Heroes count : players) {
-            System.out.println((players.indexOf(count) + 1) + " " + count.getName()
+            System.out.println((players.indexOf(count) + 1) + " - " + count.getName()
                     + " - The " + count.getType()
                     + " - level " + count.getLevel());
         }
