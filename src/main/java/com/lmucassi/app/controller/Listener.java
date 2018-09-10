@@ -28,7 +28,6 @@ public class Listener {
         startPlay();
         pro.loadPlayer(_hero);
         gameCli(enemy, _hero);
-        _cli.endSc();
     }
 
     public void getStats() {
@@ -61,6 +60,7 @@ public class Listener {
                 System.out.println("\033[34m \033[34m$ Loading players \033[0m \n" /* + eny */);
                 er = 0;
             } else if (nextCha.equals("X") || nextCha.equals("x")) {
+                _cli.endSc();
                 err.checkMovErr(nextCha);
             } else {
                 err.checkMovErr(nextCha);

@@ -34,12 +34,12 @@ public class CliView {
     }
 
     public void startSc()  {
-        System.out.println("\n\033[32m#########################################################################\033[0m");
+        System.out.println("\n\033[32m#########################################################################\033[0m\n");
         System.out.println("  Welcome to the adventure of heroes");
-        System.out.println("  You are a warrior in a land of the unknown, the king called you and gave you a task");
-        System.out.println("  Over night the King's daughter, the princes was kidnapped by The Mighty Giyante Drago");
-        System.out.println("  As a warrior you the King trusts that you will save his daughter ");
-        System.out.println("  and if you do the king will make you a knight");
+        System.out.println("  You are a warrior in a land of the unknown, You are faced with a lot of monsters in the Valley");
+        System.out.println("  It is your duty to protect the village before this monsters attack, day and night you must keep watch and patrol");
+        System.out.println("  Fight or Flee, it's all up to you hero");
+        System.out.println("  a lot of rewards awaits those eho serves the village right, may the spirit of all heroes be with you\n");
         System.out.println("\033[32m#########################################################################\033[0m");
         System.out.println("\n");
     }
@@ -47,7 +47,7 @@ public class CliView {
     public void endSc() {
         System.out.println("------------------------------------------------------------------------------------");
         System.out.println("\033[34m $ Thank you for playing this game \033[0m");
-        System.out.println("\033[34m $ Feel free to come back and play \033[0m");
+        System.out.println("\033[34m $ Feel free to come back and play again\033[0m");
         System.out.println("------------------------------------------------------------------------------------");
     }
 }
