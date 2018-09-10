@@ -5,6 +5,7 @@ import java.util.List;
 import com.lmucassi.app.ErrException.ErrException;
 import com.lmucassi.app.model.Enemies;
 import com.lmucassi.app.model.Heroes;
+import com.lmucassi.app.view.CliView;
 import lombok.Getter;
 
 import java.io.File;
@@ -17,6 +18,7 @@ public class Process {
     int isFound = 0;
     Heroes hero = new Heroes();
     int mapSize;
+    CliView _cli = new CliView();
     private ArrayList<Heroes> heroes;
     ErrException err = new ErrException();
 
@@ -51,6 +53,7 @@ public class Process {
             if (isFound == 1) {
                 System.out.println("\t \033[34m - C : Would you like to create a hero \033[0m");
                 System.out.println("\t \033[31m - S : Choose from the list [ select a number ] \033[0m");
+                System.out.println("\t \033[31m - X : Exit \033[0m");
                 System.out.println("------------------------------------------------------------------------------------");
                 System.out.println("\033[32m $ Enter command \033[0m");
                 System.out.print("\033[32m $  \033[0m");
@@ -65,6 +68,9 @@ public class Process {
                     nextCha = Cha.nextLine();
                     this.hero = heroes.get(Integer.parseInt(nextCha) - 1);
                     er = 0;
+                } else if (nextCha.equals("X") || nextCha.equals("x")) {
+                    _cli.endSc();
+                    err.checkMovErr(nextCha);
                 } else {
                     err.checkMovErr(nextCha);
                 }

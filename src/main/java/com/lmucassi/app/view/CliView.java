@@ -46,7 +46,7 @@ public class CliView {
 
     public void endSc() {
         System.out.println("------------------------------------------------------------------------------------");
-        System.out.println("\033[34m $ Thank you for playing this game \033[0m");
+        System.out.println("\033[34m $ Thank you for tryng out this game \033[0m");
         System.out.println("\033[34m $ Feel free to come back and play again\033[0m");
         System.out.println("------------------------------------------------------------------------------------");
     }
