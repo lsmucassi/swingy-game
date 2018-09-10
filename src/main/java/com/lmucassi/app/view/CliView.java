@@ -18,7 +18,7 @@ public class CliView {
     }
 
     public void printMap(int mapSize, Heroes hero) {
-//        clearScreen();
+//      clearScreen();
         hero.setX(mapSize / 2);
         hero.setY(mapSize / 2);
 
@@ -34,7 +34,7 @@ public class CliView {
     }
 
     public void startSc()  {
-        System.out.println("\033[32m#########################################################################\033[0m");
+        System.out.println("\n\033[32m#########################################################################\033[0m");
         System.out.println("  Welcome to the adventure of heroes");
         System.out.println("  You are a warrior in a land of the unknown, the king called you and gave you a task");
         System.out.println("  Over night the King's daughter, the princes was kidnapped by The Mighty Giyante Drago");
